@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { TodoListItem } from './TodoListItem';
+import { TodoList } from './TodoList';
 
+// this should comes from API in the future
 const initialTodos: Todo[] = [
   {
     text: 'Walk the dog',
@@ -8,9 +9,10 @@ const initialTodos: Todo[] = [
   },
   {
     text: 'Write app',
-    complete: true,
-  },
-];
+    complete: true
+  }
+]
+ 
 
 function App() {
   const [todos, setTodos] = useState(initialTodos);
@@ -28,12 +30,7 @@ function App() {
     setTodos(newTodos);
   };
 
-  return (
-    <ul>
-      <TodoListItem todo={todos[0]} toggleTodo={toggleTodo} />
-      <TodoListItem todo={todos[1]} toggleTodo={toggleTodo} />
-    </ul>
-  );
+  return <TodoList todos={todos} toggleTodo={toggleTodo} />;
 }
 
 export default App;
